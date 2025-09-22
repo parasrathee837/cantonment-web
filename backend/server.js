@@ -16,7 +16,7 @@ if (dbType === 'postgresql') {
 
 const authRoutes = require('./routes/auth-enhanced');
 const userRoutes = require('./routes/users-enhanced');
-const userNormalizedRoutes = require('./routes/users-normalized');
+//const userNormalizedRoutes = require('./routes/users-normalized');
 const admissionRoutes = require('./routes/admissions');
 const designationRoutes = require('./routes/designations');
 const fileUploadRoutes = require('./routes/file-uploads');
@@ -68,7 +68,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/users-normalized', userNormalizedRoutes);
+//app.use('/api/users-normalized', userNormalizedRoutes);
 app.use('/api/admissions', admissionRoutes);
 app.use('/api/designations', designationRoutes);
 app.use('/api/files', fileUploadRoutes);
