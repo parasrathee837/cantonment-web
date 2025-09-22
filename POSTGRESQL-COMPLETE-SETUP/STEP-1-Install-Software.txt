@@ -1,0 +1,116 @@
+===========================================================
+   STEP 1: INSTALL REQUIRED SOFTWARE
+===========================================================
+
+We need to install TWO programs:
+1. Node.js (same as before)
+2. PostgreSQL (the database server)
+
+===========================================================
+   OPTION A: AUTOMATIC INSTALLATION (RECOMMENDED!)
+===========================================================
+
+1. Find the file: "install-node.bat" in this folder
+2. Right-click → "Run as administrator"
+3. Wait for Node.js to install (5 minutes)
+
+4. Find the file: "install-postgresql.bat" in this folder  
+5. Right-click → "Run as administrator"
+6. Wait for PostgreSQL to install (10 minutes)
+7. REMEMBER THE PASSWORD YOU SET! (Suggest: CBA@2025Portal)
+
+===========================================================
+   OPTION B: MANUAL INSTALLATION
+===========================================================
+
+INSTALL NODE.JS:
+1. Go to: https://nodejs.org
+2. Download LTS version
+3. Install with default settings
+
+INSTALL POSTGRESQL:
+1. Go to: https://www.postgresql.org/download/windows/
+2. Download PostgreSQL 15 or 16
+3. Installation steps:
+   - Keep all default settings
+   - SET A PASSWORD for 'postgres' user
+   - WRITE DOWN THIS PASSWORD: _______________
+   - Suggested password: CBA@2025Portal
+   - Port: 5432 (keep default)
+   - Locale: Default
+
+===========================================================
+   IMPORTANT: POSTGRESQL PASSWORD
+===========================================================
+
+During PostgreSQL installation, you'll be asked for a password.
+This is for the 'postgres' superuser account.
+
+RECOMMENDED PASSWORD: CBA@2025Portal
+
+⚠️ WRITE IT DOWN! You'll need this later.
+⚠️ Don't forget this password!
+
+===========================================================
+   HOW TO CHECK IF IT WORKED:
+===========================================================
+
+CHECK NODE.JS:
+1. Press Windows + R
+2. Type: cmd
+3. Type: node --version
+4. Should show: v18.x.x or similar
+
+CHECK POSTGRESQL:
+1. Press Windows + R  
+2. Type: cmd
+3. Type: psql --version
+4. Should show: psql (PostgreSQL) 15.x
+
+If you see errors:
+- Restart computer
+- Try again
+- Add to PATH if needed
+
+===========================================================
+   POSTGRESQL SERVICES CHECK:
+===========================================================
+
+PostgreSQL should start automatically.
+
+To verify:
+1. Press Windows + R
+2. Type: services.msc
+3. Look for "postgresql-x64-15" or similar
+4. Status should be "Running"
+
+If not running:
+- Right-click → Start
+- Set to "Automatic" startup
+
+===========================================================
+   TROUBLESHOOTING:
+===========================================================
+
+"psql is not recognized":
+- PostgreSQL didn't install correctly
+- Or not added to PATH
+- Restart computer and try again
+
+"Service won't start":
+- Another program might be using port 5432
+- Restart computer
+- Check Windows firewall
+
+"Forgot PostgreSQL password":
+- You'll need to reinstall PostgreSQL
+- Or reset password (advanced)
+
+===========================================================
+   NEXT STEP:
+===========================================================
+
+Once both Node.js AND PostgreSQL are installed,
+open "STEP-2-Copy-Project-Files.txt"
+
+===========================================================

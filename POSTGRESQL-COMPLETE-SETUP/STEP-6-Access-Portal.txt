@@ -1,0 +1,221 @@
+===========================================================
+   STEP 6: ACCESS YOUR CBA PORTAL (POSTGRESQL EDITION)
+===========================================================
+
+Now let's use your application with PostgreSQL power!
+
+===========================================================
+   FROM THE SERVER COMPUTER (Where you installed):
+===========================================================
+
+1. Open any web browser:
+   - Chrome (recommended)
+   - Edge
+   - Firefox
+
+2. In the address bar, type:
+   http://localhost:5000
+
+3. Press Enter
+
+4. You should see the CBA Portal login page!
+   (Same interface, but powered by PostgreSQL)
+
+===========================================================
+   FROM OTHER COMPUTERS ON YOUR NETWORK:
+===========================================================
+
+1. Make sure they're on same WiFi/Network
+
+2. Open web browser on other computer
+
+3. Type the IP address from Step 5:
+   http://192.168.1.100:5000
+   (Use YOUR actual IP address)
+
+4. Press Enter
+
+5. Same login page appears!
+
+===========================================================
+   DEFAULT LOGIN CREDENTIALS:
+===========================================================
+
+Username: admin
+Password: admin123
+
+IMPORTANT: Change this password after first login!
+
+===========================================================
+   HOW TO USE THE PORTAL (POSTGRESQL POWERED):
+===========================================================
+
+After login, you can:
+✓ Add Staff Members (stored in PostgreSQL)
+✓ Mark Attendance (real-time PostgreSQL updates)
+✓ Generate Reports (fast PostgreSQL queries)
+✓ Manage Documents (PostgreSQL file tracking)
+✓ View Dashboard (PostgreSQL analytics)
+✓ Export Data (PostgreSQL advanced exports)
+
+All changes save automatically to PostgreSQL!
+Multiple users can use it at once with better performance!
+
+===========================================================
+   DATABASE MANAGEMENT (NEW WITH POSTGRESQL):
+===========================================================
+
+You now have professional database tools:
+
+1. pgAdmin 4 (Professional Interface):
+   - Start Menu → pgAdmin 4
+   - Connect to: localhost:5432
+   - Database: cba_portal
+   - Username: cba_admin
+   - Password: CBA@2025Portal
+
+2. Command Line Access:
+   - Run: view-database-postgresql.bat
+   - Or: psql -U cba_admin -d cba_portal
+
+3. Backup Tools:
+   - Run: backup-database.bat
+   - Creates professional SQL backups
+
+===========================================================
+   MAKE IT EASIER FOR USERS:
+===========================================================
+
+1. CREATE BOOKMARKS:
+   - Once portal opens
+   - Click star icon in browser
+   - Name it "CBA Portal (PostgreSQL)"
+   - Users can click bookmark to access
+
+2. CREATE DESKTOP SHORTCUTS FOR CLIENT PCs:
+   - Right-click on desktop
+   - New → Shortcut
+   - Type: http://192.168.1.100:5000
+   - Name it "CBA Portal"
+
+3. SHARE THE ADDRESS:
+   - Write it on a paper
+   - Email it to users
+   - Put it on notice board
+
+===========================================================
+   DAILY ROUTINE (POSTGRESQL):
+===========================================================
+
+Every morning:
+1. Turn on server PC
+2. PostgreSQL service starts automatically ✓
+3. Double-click "start-cba-portal-postgresql" on desktop
+4. Minimize the black window
+5. Portal is ready for the day!
+
+Every evening:
+1. Make sure all users are done
+2. Close the black server window
+3. PostgreSQL service keeps running (good!)
+4. Shutdown PC (optional)
+
+===========================================================
+   ADVANCED FEATURES (POSTGRESQL ONLY):
+===========================================================
+
+With PostgreSQL, you can now:
+✓ Handle 100+ simultaneous users
+✓ Run complex reports and analytics
+✓ Set up automatic database backups
+✓ Monitor database performance
+✓ Create multiple user accounts with different permissions
+✓ Export data in various formats
+✓ View detailed query logs and performance metrics
+
+===========================================================
+   IMPORTANT TIPS:
+===========================================================
+
+✓ Server PC = The computer where you installed
+✓ Client PC = Other computers accessing it
+✓ Both must be on same network
+✓ Server must be running (black window open)
+✓ PostgreSQL service runs automatically
+✓ Works without internet (local network only)
+✓ Much better performance than SQLite for multiple users
+
+===========================================================
+   TROUBLESHOOTING:
+===========================================================
+
+"Cannot connect" from other PC:
+- Check server window is open
+- Check IP address is correct
+- Make sure on same WiFi
+- Try turning off Windows Firewall temporarily
+
+"Page not loading":
+- Refresh the page (F5)
+- Check the address is correct
+- Make sure no spaces in address
+
+"Database error":
+- Check PostgreSQL service is running
+- Run: net start postgresql-x64-15
+- Check database connection in pgAdmin
+
+"Slow performance":
+- PostgreSQL should be faster than SQLite
+- Check PostgreSQL service status
+- Restart PostgreSQL service if needed
+
+===========================================================
+   CONGRATULATIONS! 🎉
+===========================================================
+
+Your CBA Portal is now running on PostgreSQL!
+
+Professional Features Now Available:
+✓ Enterprise-grade database
+✓ Advanced user management
+✓ Professional backup tools
+✓ Performance monitoring
+✓ Scalable to 100+ users
+✓ Industry-standard database system
+
+For help:
+- Check troubleshooting guides
+- Use pgAdmin for database management
+- Run backup-database.bat for backups
+- Keep this guide handy
+
+===========================================================
+   BONUS: AUTOMATIC STARTUP & MANAGEMENT
+===========================================================
+
+To start server automatically when Windows starts:
+1. Press Windows + R
+2. Type: shell:startup
+3. Copy "start-cba-portal-postgresql.bat" to this folder
+4. Now it starts automatically!
+
+Database Management:
+- pgAdmin 4: Professional database interface
+- Command line: psql commands
+- Backups: Automated SQL dump files
+- Monitoring: Performance and query analysis
+
+===========================================================
+   CLIENT PC SETUP (SAME AS BEFORE):
+===========================================================
+
+For other computers, run:
+"create-client-shortcuts.bat" (if you have it)
+
+Or manually create shortcuts pointing to:
+http://YOUR-SERVER-IP:5000
+
+No installation needed on client PCs!
+
+===========================================================

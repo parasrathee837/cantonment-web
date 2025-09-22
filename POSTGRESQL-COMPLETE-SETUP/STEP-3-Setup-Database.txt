@@ -1,0 +1,128 @@
+===========================================================
+   STEP 3: SETUP POSTGRESQL DATABASE
+===========================================================
+
+Now we create the specific database for CBA Portal.
+This is like creating a filing cabinet for your data.
+
+===========================================================
+   AUTOMATIC WAY (RECOMMENDED):
+===========================================================
+
+1. Find the file: "create-database.bat" in this folder
+2. Double-click it
+3. Enter your PostgreSQL password when asked
+4. Wait for "Database created successfully!"
+
+===========================================================
+   WHAT THIS CREATES:
+===========================================================
+
+- Database name: cba_portal
+- Username: cba_admin  
+- Password: CBA@2025Portal
+- All necessary tables and structure
+
+===========================================================
+   MANUAL WAY (IF AUTOMATIC FAILS):
+===========================================================
+
+1. Open "pgAdmin 4" from Start Menu
+   (This was installed with PostgreSQL)
+
+2. Connect to server:
+   - Click on "PostgreSQL 15" (or 16)
+   - Enter your PostgreSQL password
+
+3. Create database:
+   - Right-click "Databases"
+   - Choose "Create" → "Database"
+   - Name: cba_portal
+   - Owner: postgres
+   - Click "Save"
+
+4. Create user:
+   - Right-click "Login/Group Roles"
+   - Choose "Create" → "Login/Group Role"
+   - General tab: Name = cba_admin
+   - Definition tab: Password = CBA@2025Portal
+   - Privileges tab: Check "Can login?"
+   - Click "Save"
+
+5. Grant permissions:
+   - Right-click "cba_portal" database
+   - Choose "Properties"
+   - Security tab → Add
+   - Select "cba_admin"
+   - Privileges: ALL
+   - Click "Save"
+
+===========================================================
+   VERIFY DATABASE SETUP:
+===========================================================
+
+1. Open pgAdmin 4
+2. Connect to PostgreSQL server
+3. Expand "Databases"
+4. You should see "cba_portal"
+5. Expand it to see it's working
+
+===========================================================
+   TROUBLESHOOTING:
+===========================================================
+
+"Connection failed":
+- Check PostgreSQL password
+- Make sure PostgreSQL service is running
+- Try: services.msc → postgresql-x64-15 → Start
+
+"Database already exists":
+- That's okay! Skip to next step
+
+"Permission denied":
+- Run as administrator
+- Check password is correct
+
+"pgAdmin won't open":
+- Try from Start Menu
+- Look for "pgAdmin 4"
+- Or use command line method
+
+===========================================================
+   COMMAND LINE METHOD:
+===========================================================
+
+If pgAdmin doesn't work:
+
+1. Press Windows + R
+2. Type: cmd
+3. Type these commands (press Enter after each):
+
+   psql -U postgres
+
+   (Enter your PostgreSQL password)
+
+   CREATE DATABASE cba_portal;
+   CREATE USER cba_admin WITH PASSWORD 'CBA@2025Portal';
+   GRANT ALL PRIVILEGES ON DATABASE cba_portal TO cba_admin;
+   \q
+
+===========================================================
+   DATABASE DETAILS TO REMEMBER:
+===========================================================
+
+Server: localhost
+Port: 5432
+Database: cba_portal
+Username: cba_admin
+Password: CBA@2025Portal
+
+Write these down! ☝️
+
+===========================================================
+   NEXT STEP:
+===========================================================
+
+Database is ready! Open "STEP-4-Install-Application.txt"
+
+===========================================================

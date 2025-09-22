@@ -1,0 +1,57 @@
+# Exclude development and build artifacts
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Exclude version control
+.git/
+.gitignore
+
+# Exclude development files
+*.md
+*.log
+.env*
+
+# Exclude build artifacts
+build/
+dist/
+*.zip
+
+# Exclude backup files
+*backup*
+*-backup-*
+
+# Exclude test files
+*test*
+*sample*
+
+# Exclude temporary files
+*.tmp
+*.temp
+
+# Exclude OS files
+.DS_Store
+Thumbs.db
+
+# Exclude editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Exclude specific project files not needed in container
+apache/
+django-backend/
+venv/
+__pycache__/
+
+# Keep only essential files for Docker build
+!fixed-frontend.html
+!enhanced-frontend.html
+!api-service.js
+!backend/
+!database/
+!*.jpeg
+!*.jpg
+!README.md

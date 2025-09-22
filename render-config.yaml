@@ -1,0 +1,28 @@
+services:
+  # Main web application
+  - type: web
+    name: cba-cantonment-board
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node backend/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: DB_TYPE
+        value: postgresql
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cba-database
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+
+  # PostgreSQL database
+databases:
+  - name: cba-database
+    plan: free
+    databaseName: cba_cantonment_db
+    user: cba_admin

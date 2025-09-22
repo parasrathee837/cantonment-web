@@ -1,0 +1,158 @@
+===========================================================
+   STEP 5: START YOUR CBA PORTAL SERVER (POSTGRESQL)
+===========================================================
+
+This is like turning on your application with PostgreSQL power!
+
+===========================================================
+   THE EASY WAY:
+===========================================================
+
+1. Find the file: "start-cba-portal-postgresql.bat" in this folder
+2. Double-click it
+3. A black window opens with green/blue text
+4. Look for this information:
+   
+   ===========================================================
+      CBA PORTAL - POSTGRESQL EDITION - RUNNING
+   ===========================================================
+   
+   ✓ Database: PostgreSQL (Professional Grade)
+   ✓ Server Status: STARTING...
+   
+   Your IP Address: 192.168.1.100 (example)
+   
+   Access from this PC: http://localhost:5000
+   Access from network: http://192.168.1.100:5000
+
+5. IMPORTANT: KEEP THIS WINDOW OPEN!
+   - Don't close it
+   - Minimize it if you want
+   - The server runs as long as this window is open
+
+===========================================================
+   WHAT YOU'LL SEE (PostgreSQL SPECIFIC):
+===========================================================
+
+The black window shows:
+✓ "PostgreSQL service: RUNNING"
+✓ "Database: PostgreSQL (Professional Grade)"
+✓ "Connected to PostgreSQL database: cba_portal"
+✓ "Server running on port 5000"
+✓ Your IP address for network access
+
+===========================================================
+   POSTGRESQL DATABASE INFO:
+===========================================================
+
+You'll also see database information:
+- Database Management: pgAdmin 4
+- Database: cba_portal
+- Username: cba_admin
+- Server: localhost:5432
+
+This is much more detailed than SQLite!
+
+===========================================================
+   UNDERSTANDING THE IP ADDRESS:
+===========================================================
+
+You'll see something like:
+- 192.168.1.100
+- 192.168.0.105
+- 10.0.0.50
+
+This is YOUR computer's address on the network.
+Other computers use this to connect to you.
+
+Write it down: _________________
+
+===========================================================
+   TO STOP THE SERVER:
+===========================================================
+
+When you want to stop:
+1. Click on the black window
+2. Press Ctrl + C
+3. Type Y if asked
+4. Window can now be closed
+5. PostgreSQL service keeps running (that's good!)
+
+===========================================================
+   POSTGRESQL SERVICE VS APPLICATION:
+===========================================================
+
+IMPORTANT DIFFERENCE FROM SQLITE:
+
+PostgreSQL has TWO parts:
+1. PostgreSQL SERVICE (always running in background)
+2. CBA PORTAL APPLICATION (this black window)
+
+- PostgreSQL service: Runs automatically, manages database
+- CBA Portal app: Only runs when you start it (this window)
+
+===========================================================
+   CREATE DESKTOP SHORTCUTS:
+===========================================================
+
+For easy access:
+1. Find "start-cba-portal-postgresql.bat"
+2. Right-click on it
+3. Choose "Send to" → "Desktop (create shortcut)"
+4. Now you have an icon on your desktop!
+
+Also create shortcut for database management:
+1. Find "view-database-postgresql.bat"
+2. Right-click → "Send to" → "Desktop (create shortcut)"
+3. Name it "CBA Database Manager"
+
+===========================================================
+   SERVER RULES (POSTGRESQL):
+===========================================================
+
+Remember:
+✓ Server PC must stay ON
+✓ Don't close the black APPLICATION window
+✓ PostgreSQL service runs automatically (good!)
+✓ Don't sleep/hibernate the PC
+✓ One application window at a time
+
+===========================================================
+   TROUBLESHOOTING:
+===========================================================
+
+"PostgreSQL service not found":
+- PostgreSQL didn't install properly
+- Run install-postgresql.bat again
+
+"Database connection failed":
+- PostgreSQL service not running
+- Check: services.msc → postgresql-x64-15
+- Or run: net start postgresql-x64-15
+
+"Port 5000 already in use":
+- You already have a server running
+- Close all black windows and try again
+
+"Cannot find module 'pg'":
+- PostgreSQL driver not installed
+- Go back to Step 4
+
+===========================================================
+   POSTGRESQL ADVANTAGES YOU'LL NOTICE:
+===========================================================
+
+Compared to SQLite, you'll see:
+✓ Faster startup with large data
+✓ Better performance with multiple users
+✓ Professional database management tools
+✓ Detailed connection and query information
+✓ Advanced backup and recovery options
+
+===========================================================
+   NEXT STEP:
+===========================================================
+
+Server is running with PostgreSQL! Open "STEP-6-Access-Portal.txt"
+
+===========================================================

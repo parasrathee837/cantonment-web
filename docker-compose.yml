@@ -1,0 +1,160 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database Service
+  postgres:
+    image: postgres:15-alpine
+    container_name: cba_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: cba_portal
+      POSTGRES_USER: cba_admin
+      POSTGRES_PASSWORD: CBA@2025Portal
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+      - ./database/backups:/backups
+    networks:
+      - cba_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cba_admin -d cba_portal"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Backend API Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: cba_backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      DB_TYPE: postgresql
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: cba_portal
+      DB_USER: cba_admin
+      DB_PASSWORD: CBA@2025Portal
+      JWT_SECRET: your_super_secure_jwt_secret_key_here_change_this
+      CORS_ORIGIN: http://localhost:3000,http://localhost,http://127.0.0.1:3000
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - ./backend/logs:/app/logs
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - cba_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend Web Service
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend.Dockerfile
+    container_name: cba_frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - backend
+    networks:
+      - cba_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis for Session Management (Optional)
+  redis:
+    image: redis:7-alpine
+    container_name: cba_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - cba_network
+    command: redis-server --appendonly yes --requirepass CBA@2025Redis
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # PgAdmin for Database Management (Optional)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: cba_pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@cba.local
+      PGADMIN_DEFAULT_PASSWORD: CBA@2025Admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    networks:
+      - cba_network
+
+  # Database backup service
+  cba-backup:
+    image: postgres:15-alpine
+    container_name: cba_backup
+    volumes:
+      - postgres_data:/data:ro
+      - ./database/backups:/backups
+    command: |
+      sh -c '
+        while true; do
+          timestamp=$$(date +%Y%m%d_%H%M%S)
+          pg_dump -h postgres -U cba_admin -d cba_portal > /backups/cba_backup_$$timestamp.sql
+          echo "PostgreSQL backup created: cba_backup_$$timestamp.sql"
+          sleep 86400  # Daily backup
+        done
+      '
+    environment:
+      PGPASSWORD: CBA@2025Portal
+    depends_on:
+      - postgres
+    networks:
+      - cba_network
+    restart: unless-stopped
+    profiles:
+      - backup
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+
+networks:
+  cba_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

@@ -1,0 +1,38 @@
+QUICK DATABASE SETUP - CBA PORTAL
+=================================
+
+PROBLEM: Your database is missing tables needed to store staff information
+
+SOLUTION: Run this single file:
+> setup-database-tables.bat
+
+This file contains everything needed - no external files required!
+
+WHAT IT DOES:
+1. Connects to your PostgreSQL database
+2. Creates all missing tables
+3. Preserves your existing admin user
+4. Makes the application work properly
+
+TABLES IT CREATES:
+- user_complete_profile (detailed staff information)
+- attendance (attendance records)
+- leaves (leave management)
+- payslips (salary information)
+- codes (function/object codes)
+- files (document storage)
+- notifications
+- audit_logs
+- settings
+
+AFTER RUNNING:
+1. Login to admin portal with your existing credentials
+2. Create new staff - all data will be saved
+3. Use monitor-cba-database.bat to verify
+
+IF YOU GET ERRORS:
+- Make sure PostgreSQL is running
+- Verify password is correct
+- Run as Administrator if needed
+
+This is a self-contained solution - just run the .bat file!

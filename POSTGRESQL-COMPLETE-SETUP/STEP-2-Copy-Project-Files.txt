@@ -1,0 +1,98 @@
+===========================================================
+   STEP 2: COPY YOUR PROJECT FILES
+===========================================================
+
+Now we need to put your CBA Portal files in the right place.
+This is exactly the same as the SQLite version.
+
+===========================================================
+   AUTOMATIC WAY (RECOMMENDED):
+===========================================================
+
+1. Find the file: "setup-project-folder.bat" in this folder
+2. Double-click it
+3. It will:
+   - Create folder: C:\CBA_Portal
+   - Ask you where your project files are
+   - Copy everything automatically
+
+===========================================================
+   MANUAL WAY:
+===========================================================
+
+1. CREATE THE MAIN FOLDER:
+   - Open File Explorer (yellow folder icon)
+   - Click on "This PC" or "C:" drive
+   - Right-click in empty space
+   - Choose "New" → "Folder"
+   - Name it: CBA_Portal
+
+2. COPY YOUR PROJECT:
+   - Find your "cantonment-web" folder
+     (It might be in Downloads, Desktop, or a USB drive)
+   - Right-click on "cantonment-web" folder
+   - Choose "Copy"
+   - Go to C:\CBA_Portal
+   - Right-click in empty space
+   - Choose "Paste"
+   - Wait for files to copy (might take 2-5 minutes)
+
+3. CHECK IT WORKED:
+   You should now have:
+   C:\CBA_Portal\cantonment-web\
+                              ├── backend\
+                              ├── database\
+                              ├── fixed-frontend.html
+                              └── other files...
+
+===========================================================
+   WHAT THESE FOLDERS CONTAIN:
+===========================================================
+
+- backend\     = The server part of your app
+- database\    = Database schema files (for PostgreSQL)
+- *.html files = The web pages users see
+- *.js files   = JavaScript application files
+
+===========================================================
+   POSTGRESQL COMPATIBILITY:
+===========================================================
+
+Your existing project files will work perfectly with PostgreSQL!
+The application automatically detects and connects to PostgreSQL
+when configured properly (which we'll do in the next steps).
+
+===========================================================
+   COMMON ISSUES:
+===========================================================
+
+"Folder already exists":
+- That's OK! Use the existing folder
+
+"Access denied":
+- Try copying to your Desktop first
+- Then move to C:\CBA_Portal
+
+"Not enough space":
+- You need about 500 MB free space
+- Delete some files or use another drive
+
+===========================================================
+   VERIFY EVERYTHING IS CORRECT:
+===========================================================
+
+Check you have these files:
+□ C:\CBA_Portal\cantonment-web\backend\server.js
+□ C:\CBA_Portal\cantonment-web\backend\package.json
+□ C:\CBA_Portal\cantonment-web\fixed-frontend.html
+□ C:\CBA_Portal\cantonment-web\backend\config\
+
+If all files are there - SUCCESS! ✓
+
+===========================================================
+   NEXT STEP:
+===========================================================
+
+Open "STEP-3-Setup-Database.txt"
+
+===========================================================

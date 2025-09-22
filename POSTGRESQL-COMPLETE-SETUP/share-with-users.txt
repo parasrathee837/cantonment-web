@@ -1,0 +1,98 @@
+===========================================================
+   SHARE CBA PORTAL WITH OTHER USERS
+===========================================================
+
+IMPORTANT: Only the SERVER PC needs the full installation.
+Other PCs just need a web browser!
+
+===========================================================
+   FOR OTHER PCs (CLIENTS):
+===========================================================
+
+OPTION 1 - DIRECT ACCESS:
+1. Open any web browser
+2. Type: http://[SERVER-IP]:5000
+3. Replace [SERVER-IP] with your actual server IP
+4. Login: admin / admin123
+
+OPTION 2 - CREATE SHORTCUTS:
+1. Copy "create-client-shortcuts.bat" to other PC
+2. Run it and enter server IP
+3. Desktop shortcut will be created
+
+OPTION 3 - EMAIL INSTRUCTIONS:
+Send this to your users:
+
+"To access CBA Portal:
+1. Open web browser
+2. Go to: http://[YOUR-SERVER-IP]:5000
+3. Login with: admin / admin123"
+
+===========================================================
+   NETWORK REQUIREMENTS:
+===========================================================
+
+✓ Server PC must be ON
+✓ Server application must be running (black window open)
+✓ All PCs on same network/WiFi
+✓ Windows Firewall configured (done during setup)
+
+===========================================================
+   WHAT USERS NEED:
+===========================================================
+
+✓ Web browser (Chrome, Edge, Firefox)
+✓ Server IP address
+✓ Login credentials
+✓ Network access
+
+NO INSTALLATION NEEDED ON CLIENT PCs!
+
+===========================================================
+   USER INSTRUCTIONS TEMPLATE:
+===========================================================
+
+Dear Team,
+
+CBA Portal is now available on our network.
+
+ACCESS INSTRUCTIONS:
+1. Open your web browser
+2. Type: http://[SERVER-IP]:5000
+3. Username: admin
+4. Password: admin123
+
+FEATURES AVAILABLE:
+- Staff Management
+- Attendance Tracking
+- Document Management
+- Reports Generation
+
+SUPPORT:
+- Contact IT if you cannot access
+- Server must be running during office hours
+- All data saves automatically
+
+Best regards,
+Administration
+
+===========================================================
+   TROUBLESHOOTING FOR USERS:
+===========================================================
+
+"Cannot connect":
+- Check if server PC is ON
+- Verify IP address is correct
+- Try from server PC first (localhost:5000)
+
+"Page not loading":
+- Refresh the page (F5)
+- Clear browser cache
+- Try different browser
+
+"Login not working":
+- Check username: admin (lowercase)
+- Check password: admin123
+- Contact administrator for account
+
+===========================================================

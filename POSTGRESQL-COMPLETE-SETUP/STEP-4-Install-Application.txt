@@ -1,0 +1,136 @@
+===========================================================
+   STEP 4: INSTALL THE APPLICATION COMPONENTS
+===========================================================
+
+Now we install the CBA Portal application parts with PostgreSQL support.
+This is like installing the app itself but configured for PostgreSQL.
+
+===========================================================
+   AUTOMATIC WAY (EASY!):
+===========================================================
+
+1. Find the file: "install-dependencies.bat" in this folder
+2. Double-click it
+3. You'll see a black window with text scrolling
+4. Wait for "Installation Complete!" message
+5. Press any key when done
+
+This process:
+- Takes about 5-8 minutes (longer than SQLite)
+- Downloads application components
+- Installs PostgreSQL drivers
+- Configures everything for PostgreSQL
+- Sets up the database connection
+
+===========================================================
+   MANUAL WAY (IF AUTOMATIC FAILS):
+===========================================================
+
+1. OPEN COMMAND PROMPT:
+   - Press Windows Key + R
+   - Type: cmd
+   - Press Enter
+
+2. GO TO PROJECT FOLDER:
+   Type these commands (press Enter after each):
+   
+   cd C:\CBA_Portal\cantonment-web\backend
+   
+3. INSTALL COMPONENTS:
+   Type:
+   
+   npm install
+   
+   Then install PostgreSQL driver:
+   
+   npm install pg
+   
+   Press Enter and wait (5-8 minutes)
+
+4. YOU'LL SEE:
+   - Lots of text scrolling by
+   - Progress bars
+   - "added XXX packages" when done
+
+===========================================================
+   CONFIGURE NETWORK ACCESS:
+===========================================================
+
+For others to access your app:
+
+1. Find the file: "configure-network.bat" 
+2. Right-click → "Run as administrator"
+3. Click "Yes" when asked
+4. This sets up Windows Firewall
+
+===========================================================
+   WHAT'S HAPPENING:
+===========================================================
+
+We're installing:
+✓ Express - Web server software
+✓ PostgreSQL driver (pg) - Database connectivity
+✓ Security components
+✓ Authentication modules
+✓ All other required parts
+
+PostgreSQL driver allows Node.js to communicate with PostgreSQL!
+
+===========================================================
+   POSTGRESQL CONFIGURATION:
+===========================================================
+
+The installer automatically creates a .env file with:
+- Database type: postgresql
+- Server: localhost:5432
+- Database: cba_portal
+- Username: cba_admin
+- Password: CBA@2025Portal
+
+This tells your application to use PostgreSQL instead of SQLite.
+
+===========================================================
+   HOW TO KNOW IT WORKED:
+===========================================================
+
+Check for these:
+✓ C:\CBA_Portal\cantonment-web\backend\node_modules\ (folder exists)
+✓ C:\CBA_Portal\cantonment-web\backend\.env (configuration file)
+✓ No error messages during installation
+
+Success indicators:
+- "PostgreSQL driver installed successfully"
+- "Configuration file created"
+- "Installation Complete!" message
+
+===========================================================
+   TROUBLESHOOTING:
+===========================================================
+
+"npm is not recognized":
+- Node.js didn't install properly
+- Go back to Step 1
+- Restart computer after installing Node.js
+
+"pg module install failed":
+- PostgreSQL not installed correctly
+- Run install-postgresql.bat again
+- Check PostgreSQL service is running
+
+"EACCES" or "Permission denied":
+- Run as administrator
+- Or try in a different folder
+
+"Network error":
+- Check internet connection
+- Try again in few minutes
+- Your firewall might be blocking
+
+===========================================================
+   NEXT STEP:
+===========================================================
+
+Everything installed with PostgreSQL support! 
+Open "STEP-5-Start-Server.txt"
+
+===========================================================
